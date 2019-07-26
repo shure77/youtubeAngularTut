@@ -19,14 +19,14 @@ export class CarsAddComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       'id': new FormControl(null),
-      'brand': new FormControl(null, Validators.required),
-      'model': new FormControl(null, Validators.required),
+      'brand': new FormControl(null, [Validators.required, Validators.maxLength(50)]),
+      'model': new FormControl(null, [Validators.required, Validators.maxLength(50)]),
       'fabYear': new FormControl(null, Validators.required),
       'price': new FormControl(null, Validators.required),
       'km': new FormControl(null, Validators.required),
       'engine': new FormGroup({
         'fuelType': new FormControl(null, Validators.required),
-        'power': new FormControl(null, Validators.required),
+        'power': new FormControl(null, [Validators.required, Validators.max(100)]),
         'fuelConsumption': new FormControl(null, Validators.required)
       })
     });

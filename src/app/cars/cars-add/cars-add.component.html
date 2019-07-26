@@ -7,10 +7,12 @@
         <!--id is needed by the server for the http post request, also add it in the .ts to register it in the form!-->
         <input formControlName="id" type="hidden">
         <input formControlName="brand" type="text" class="form-control" id="brand">
+        <span class="help-block" *ngIf="form.get('brand').invalid && form.get('brand').touched && form.get('brand').dirty">Must not exceed 50 chars</span>
     </div>
     <div class="form-group col-md-6">
         <label for="model">Model</label>
         <input formControlName="model" type="text" class="form-control" id="model">
+        <span class="help-block" *ngIf="form.get('model').invalid && form.get('model').touched && form.get('model').dirty">Must not exceed 50 chars</span>
     </div>
 </div>
 <div class="row">
@@ -41,6 +43,7 @@
     <div class="form-group col-md-4">
         <label for="power">Power</label>
         <input formControlName="power" type="number" class="form-control" id="power">
+        <span class="help-block" *ngIf="form.get('engine.power').invalid && form.get('engine.power').touched && form.get('engine.power').dirty">Must not exceed 100</span>
     </div>
 
     <div class="form-group col-md-4">

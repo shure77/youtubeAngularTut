@@ -4,6 +4,7 @@ import { Engine } from '../models/engine';
 
 const cars: Car[] = [
     {
+        id: 100,
         brand: 'Renault',
         model: 'Clio',
         engine: {
@@ -17,6 +18,7 @@ const cars: Car[] = [
     },
 
     {
+        id: 101,
         brand: 'VW',
         model: 'Passat',
         engine: {
@@ -30,6 +32,7 @@ const cars: Car[] = [
     },
 
     {
+        id:102,
         brand: 'Dodge',
         model: 'Journey',
         engine: {
