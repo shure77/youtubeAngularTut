@@ -1,3 +1,12 @@
-<ul class="list-group" *ngFor="let car of cars">
-    <li class="list-group-item">{{car.brand}}-{{car.model}}</li>
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="list-group" *ngFor="let car of cars">
+                <li class="list-group-item">{{car.brand}}-{{car.model}}</li>
+            </ul>
+        </div>
+        <div class="col-md-4 card card-body bg-light">
+            <app-cars-add></app-cars-add>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" autocomplete="off">
+    <fieldset>
+        <legend>Car Info</legend>
+        <div class="row">
+    <div class="form-group col-md-6">
+        <label for="brand">Brand</label>
+        <input formControlName="brand" type="text" class="form-control" id="brand">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="model">Model</label>
+        <input formControlName="model" type="text" class="form-control" id="model">
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-md-4">
+        <label for="fabYear">Fab Year</label>
+        <input formControlName="fabYear" type="number" class="form-control" id="fabYear" placeholder="YYYY">
+    </div>
+    <div class="form-group col-md-4">
+        <label for="price">Price</label>
+        <input formControlName="price" type="number" class="form-control" id="price">
+    </div>
+    <div class="form-group col-md-4">
+        <label for="km">km</label>
+        <input formControlName="km" type="number" class="form-control" id="km">
+    </div>
+</div>
+</fieldset>
+    <fieldset>
+        <legend>Engine Info</legend>
+    <div formGroupName="engine">
+            <div class="row">
+    <div class="form-group col-md-4">
+        <label for="fuelType">Fuel Type</label>
+        <select formControlName="fuelType" class="form-control" id="fuelType">
+            <option *ngFor="let fuelType of fuelTypes; let i = index" [attr.data-index]="i">{{fuelType}}</option>
+        </select>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="power">Power</label>
+        <input formControlName="power" type="number" class="form-control" id="power">
+    </div>
+
+    <div class="form-group col-md-4">
+        <label for="fuelConsumption">liter/km</label>
+        <input formControlName="fuelConsumption" type="number" class="form-control" id="fuelConsumption">
+    </div>
+</div>
+</div>
+</fieldset>
+    <button class="btn btn-primary" style="width: 50%;"type="submit" [disabled]="!form.valid">Submit</button>
+    <button class="btn btn-danger" style="width: 50%;" type="button" (click)="onReset()">Reset</button>
+</form>
