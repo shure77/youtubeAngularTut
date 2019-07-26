@@ -14,6 +14,7 @@ export class CarsAddComponent implements OnInit {
   fuelTypes = [ '', 'petrol', 'diesel', 'electric'];
   defaultFuelType = 'diesel';
 
+  @Output() updateCarsList: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor(private carsService: CarsService) { }
 
   ngOnInit() {
@@ -35,7 +36,7 @@ export class CarsAddComponent implements OnInit {
   onSubmit(newCar: Car) {
     this.carsService.addCar(newCar).subscribe( 
       (car: Car) => {
-        alert("Car has been submitted");
+        this.updateCarsList.emit(true);
       }
     );
     this.form.reset();
