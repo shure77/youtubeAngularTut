@@ -1,9 +1,24 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <ul class="list-group" *ngFor="let car of cars">
-                <li class="list-group-item">{{car.brand}}-{{car.model}}</li>
-            </ul>
+            <div class="card card-info" *ngFor="let car of cars">
+                <div class="card-header">
+                        {{car.brand}}-{{car.model}}
+                        <div class="pull-right">
+                            <button class="btn btn-xs btn-warning" (click)="editCar(car.id)">Edit</button>
+                            <button class="btn btn-xs btn-danger" (click)="deleteCar(car.id)">Delete</button>
+                        </div>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Kilometers: {{car.km}}</li>
+                        <li class="list-group-item">Year: {{car.fabYear}}</li>
+                        <li class="list-group-item">Engine: {{car.engine?.fuelType}} / {{car.engine?.power}} hp - {{car.engine?.fuelConsumption}} l/km</li>
+                        <li class="list-group-item">Price: {{car.price | currency: 'EUR'}}</li>
+
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="col-md-4 card card-body bg-light">
             <app-cars-add (updateCarsList)="getCars()"></app-cars-add>

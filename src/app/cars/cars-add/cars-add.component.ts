@@ -37,6 +37,9 @@ export class CarsAddComponent implements OnInit {
     this.carsService.addCar(newCar).subscribe( 
       (car: Car) => {
         this.updateCarsList.emit(true);
+      },
+      error => {
+        alert ('Could not retrieve cars!');
       }
     );
     this.form.reset();

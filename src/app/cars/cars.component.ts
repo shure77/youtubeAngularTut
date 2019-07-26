@@ -24,5 +24,18 @@ export class CarsComponent implements OnInit {
       }
     );
   }
+
+  editCar (carId: number) {
+    this.carService.getCarById(carId);
+  }
+
+  deleteCar (carId: number) {
+    this.carService.deleteCar(carId)
+    .subscribe(
+      (car: Car) => {
+        this.getCars();
+      }
+    )
+  }
 }
 
