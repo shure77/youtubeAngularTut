@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Car } from '../models/car';
-import cars from '../cars/car-list';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -9,25 +8,28 @@ import { Observable } from 'rxjs';
 })
 export class CarsService {
 
-  private cars: Car[];
-
   constructor(private http: HttpClient) {
-    this.cars = cars;
   }
 
-  getCars() {
-    return this.cars;
+  getCars(): Observable<any> {
+    return this.http.get('http://localhost:3000/cars');
   }
 
   //by calling addCar we do the http-post request. This returns an observable
   addCar(newCar: Car): Observable<any> {
-    cars.push(newCar);
-    console.log(cars);
     return this.http.post('http://localhost:3000/cars', newCar);
   }
 
-  editCar() {}
+  editCar(car: Car) {
+    return this.http.put(`http://localhost:3000/cars/${car.id}`, car);
+  }
 
-  deleteCar() {}
+  deleteCar(carId: number) {
+    return this.http.delete(`http://localhost:3000/cars/${carId}`);
+  }
+
+  getCarById(carId: number) {
+    return this.http.get(`http://localhost:3000/cars/${carId}`);
+  }
 }
 
