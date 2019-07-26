@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Car } from '../models/car';
+import cars from './car-list'; //import constant without {}
 
 @Component({
   selector: 'app-cars',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsComponent implements OnInit {
 
+  cars: Car[];
+
   constructor() { }
 
   ngOnInit() {
+    this.cars = cars;
+    console.log(this.cars);
   }
 
 }
