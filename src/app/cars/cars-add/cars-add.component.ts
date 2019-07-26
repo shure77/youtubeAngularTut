@@ -18,6 +18,7 @@ export class CarsAddComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
+      'id': new FormControl(null),
       'brand': new FormControl(null, Validators.required),
       'model': new FormControl(null, Validators.required),
       'fabYear': new FormControl(null, Validators.required),
@@ -32,8 +33,12 @@ export class CarsAddComponent implements OnInit {
   }
 
   onSubmit(newCar: Car) {
-    this.carsService.addCar(newCar);
-    console.log('hi');
+    this.carsService.addCar(newCar).subscribe( 
+      (car: Car) => {
+        alert("Car has been submitted");
+      }
+    );
+    this.form.reset();
   }
 
   onReset() {

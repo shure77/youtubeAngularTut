@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CarsComponent } from './cars/cars.component';
 import { ReportComponent } from './report/report.component';
 import { CarsAddComponent } from './cars/cars-add/cars-add.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   //Components go in here
@@ -22,7 +23,8 @@ import { CarsAddComponent } from './cars/cars-add/cars-add.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   //Services go in here
   providers: [],

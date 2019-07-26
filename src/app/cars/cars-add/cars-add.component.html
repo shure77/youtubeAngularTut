@@ -4,6 +4,8 @@
         <div class="row">
     <div class="form-group col-md-6">
         <label for="brand">Brand</label>
+        <!--id is needed by the server for the http post request, also add it in the .ts to register it in the form!-->
+        <input formControlName="id" type="hidden">
         <input formControlName="brand" type="text" class="form-control" id="brand">
     </div>
     <div class="form-group col-md-6">
