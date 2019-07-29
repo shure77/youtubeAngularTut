@@ -10,8 +10,11 @@ import { CarsService } from '../shared/cars.service';
 export class CarsComponent implements OnInit {
 
   cars: Car[];
+  selectedCar: Car;
 
-  constructor(private carService: CarsService) { }
+  constructor(private carService: CarsService) {
+    this.selectedCar = new Car();
+  }
 
   ngOnInit() {
     this.getCars();
@@ -25,11 +28,24 @@ export class CarsComponent implements OnInit {
     );
   }
 
-  editCar (carId: number) {
-    this.carService.getCarById(carId);
+  editCar(carId: number) {
+    this.selectedCar = this.cars.find( (elem:Car) => elem.id === carId );
+    //ALTERNATIVE zum Network Call um Anfragen zu reduzieren (gut wenn der Status in der Applikation dem Status in der Datenbank entspricht)
+    console.log('Selected', this.selectedCar);
+    // NETWORK CALL
+    // this.carService.getCarById(carId)
+    //   .subscribe(
+    //     ( car ) => {
+    //       this.selectedCar = car;
+    //       console.log(this.selectedCar);
+    //     },
+    //     error => {
+    //       alert('Could not retrieve car with id ' + carId);
+    //     }
+    //   );
   }
 
-  deleteCar (carId: number) {
+  deleteCar(carId: number) {
     this.carService.deleteCar(carId)
     .subscribe(
       (car: Car) => {
