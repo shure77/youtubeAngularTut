@@ -1,1 +1,24 @@
-<p>report works!</p>
+<h1>Car Report</h1>
+
+<table class="table">
+    <tr>
+        <td>Oldest Car in Lot</td>
+        <td>{{ oldest?.brand }} - {{ oldest?.model }} / {{ oldest?.fabYear }}</td>
+    </tr>
+    <tr>
+        <td>Most Used</td>
+        <td>{{ mostUsed?.brand }} - {{ mostUsed?.model }} / {{ mostUsed?.km }} km</td>
+    </tr>
+    <tr>
+        <td>Most Efficient Car</td>
+        <td>{{ mostEfficient?.brand }} - {{ mostEfficient?.model }} / {{ mostEfficient?.engine.fuelConsumption }} l/km</td>
+    </tr>
+    <tr>
+        <td>Most Expensive Car</td>
+        <td>{{ mostExpensive?.brand }} - {{ mostExpensive?.model }} / {{ mostExpensive?.price | currency: 'EUR' }} EUR</td>
+    </tr>
+    <tr>
+        <td>Total Value of Cars</td>
+        <td>{{total | currency: 'EUR'}}</td>
+    </tr>
+</table>

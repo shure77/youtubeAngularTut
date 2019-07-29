@@ -26,8 +26,8 @@ export class CarsAddComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.form = new FormGroup({
       'id': new FormControl(null),
-      'brand': new FormControl(null, [Validators.required, Validators.maxLength(50)]),
-      'model': new FormControl(null, [Validators.required, Validators.maxLength(50)]),
+      'brand': new FormControl(null, [Validators.required, Validators.maxLength(50), Validators.minLength(3)]),
+      'model': new FormControl(null, [Validators.required, Validators.maxLength(50), Validators.minLength(3)]),
       'fabYear': new FormControl(null, Validators.required),
       'price': new FormControl(null, Validators.required),
       'km': new FormControl(null, Validators.required),
